@@ -76,25 +76,25 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const data = {
-        Gender: parseInt(document.getElementById("Gender").value),
-        Married: parseInt(document.getElementById("Married").value),
-        Education: parseInt(document.getElementById("Education").value),
-        ApplicantIncome: parseFloat(document.getElementById("ApplicantIncome").value),
-        LoanAmount: parseFloat(document.getElementById("LoanAmount").value),
-        Loan_Amount_Term: parseFloat(document.getElementById("Loan_Amount_Term").value),
-        Credit_History: parseInt(document.getElementById("Credit_History").value),
-        Property_Area: parseInt(document.getElementById("Property_Area").value)
-      };
+     const data = {
+  Gender: parseInt(document.getElementById("Gender").value),
+  Married: parseInt(document.getElementById("Married").value),
+  Education: parseInt(document.getElementById("Education").value),
+  ApplicantIncome: parseFloat(document.getElementById("ApplicantIncome").value),
+  LoanAmount: parseFloat(document.getElementById("LoanAmount").value),
+  Loan_Amount_Term: parseFloat(document.getElementById("Loan_Amount_Term").value),
+  Credit_History: parseInt(document.getElementById("Credit_History").value),
+  Property_Area: parseInt(document.getElementById("Property_Area").value)
+};
 
-      try {
-        const response = await fetch("https://mlapi-loan-4.onrender.com/predict", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
+const response = await fetch("https://mlapi-loan-4.onrender.com/predict", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(data),
+});
+
 
         if (!response.ok) {
           resultDiv.innerHTML = "❌ Prediction failed. Please check your input.";

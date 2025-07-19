@@ -1,30 +1,24 @@
 from fastapi import FastAPI
-from app.schema.request import ApplicantData
+from fastapi.middleware.cors import CORSMiddleware
+
 from app.predictor import predict
-from app.db import get_connection
+from app.schema import ApplicantData
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return {"message": "Loan Approval Predictor API is live!"}
+# 👇 Add this middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://mlapi-loan-6.onrender.com"],  # your frontend origin
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 @app.post("/predict")
-def predict_approval(applicant: ApplicantData):
-    input_data = [
-        applicant.gender,
-        applicant.married,
-        applicant.dependents,
-        applicant.education,
-        applicant.self_employed,
-        applicant.applicant_income,
-        applicant.coapplicant_income,
-        applicant.loan_amount,
-        applicant.loan_amount_term,
-        applicant.credit_history,
-        applicant.property_area,
-        applicant.loan_purpose
-    ]
-    result = predict(input_data)
-    return {"loan_status": result}
+def get_prediction(data: ApplicantData):
+    result = predict(data)
+    return {"prediction": result}
+
 
 

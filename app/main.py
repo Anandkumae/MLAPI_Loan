@@ -8,6 +8,7 @@ app = FastAPI()
 origins = [
     "https://mlapi-loan-9.onrender.com",  # your frontend Render app URL
 ]
+allow_origins=["*"]
 
 # 👇 Add this middleware
 app.add_middleware(

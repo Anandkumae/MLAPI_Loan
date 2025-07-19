@@ -1,8 +1,8 @@
 fastapi
 uvicorn
+python-multipart
 joblib
 scikit-learn
 pydantic
-numpy
 mysql-connector-python
 

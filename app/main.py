@@ -6,13 +6,13 @@ from app.schema import ApplicantData
 
 app = FastAPI()
 origins = [
-    "https://mlapi-loan-7.onrender.com",  # your frontend Render app URL
+    "https://mlapi-loan-9.onrender.com",  # your frontend Render app URL
 ]
 
 # 👇 Add this middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://mlapi-loan-8.onrender.com"],  # your frontend origin
+    allow_origins=["https://mlapi-loan-9.onrender.com"],  # your frontend origin
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

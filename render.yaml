@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: loan-approval-api
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port 10000"
+    envVars:
+      - key: MYSQL_HOST
+        value: your-mysql-host
+      - key: MYSQL_USER
+        value: your-username
+      - key: MYSQL_PASSWORD
+        value: your-password
+      - key: MYSQL_DB
+        value: loan_db

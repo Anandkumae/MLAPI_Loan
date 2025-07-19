@@ -2,7 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.predictor import predict
-from app.schema import ApplicantData
+from app.schema.request import ApplicantData
+
 
 app = FastAPI()
 origins = [

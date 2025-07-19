@@ -12,7 +12,7 @@ This API predicts whether a loan application is likely to be approved or rejecte
 
 - `GET /` - Health check
 - `POST /predict` - Send applicant data and receive approval status
-
+sample live demo-https://mlapi-loan-9.onrender.com
 ## 💾 Sample SQL Table
 
 ```sql

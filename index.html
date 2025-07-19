@@ -88,28 +88,26 @@
       };
 
       try {
-       const response = await fetch("https://mlapi-loan-4.onrender.com/predict", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(userInputData), // make sure this matches the expected backend format
-});
-
+        const response = await fetch("https://mlapi-loan-4.onrender.com/predict", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(data),
         });
 
         if (!response.ok) {
-          resultDiv.innerHTML = "Prediction failed. Please try again.";
+          resultDiv.innerHTML = "❌ Prediction failed. Please check your input.";
           return;
         }
 
         const result = await response.json();
         resultDiv.innerHTML = result.prediction === 1 ? "✅ Loan Approved" : "❌ Loan Not Approved";
       } catch (error) {
-        resultDiv.innerHTML = "Error occurred. Check backend or inputs.";
+        resultDiv.innerHTML = "❌ Error occurred. Check backend or inputs.";
       }
     });
   </script>
 </body>
 </html>
+

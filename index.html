@@ -88,11 +88,14 @@
       };
 
       try {
-        const response = await fetch("https://mlapi-loan-4.onrender.com/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+       const response = await fetch("https://mlapi-loan-4.onrender.com/predict", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(userInputData), // make sure this matches the expected backend format
+});
+
           body: JSON.stringify(data),
         });
 

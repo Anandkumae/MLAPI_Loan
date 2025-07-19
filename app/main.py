@@ -12,7 +12,7 @@ origins = [
 # 👇 Add this middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://mlapi-loan-6.onrender.com"],  # your frontend origin
+    allow_origins=["https://mlapi-loan-8.onrender.com"],  # your frontend origin
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

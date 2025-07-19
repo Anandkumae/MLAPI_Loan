@@ -5,6 +5,9 @@ from app.predictor import predict
 from app.schema import ApplicantData
 
 app = FastAPI()
+origins = [
+    "https://mlapi-loan-7.onrender.com",  # your frontend Render app URL
+]
 
 # 👇 Add this middleware
 app.add_middleware(
